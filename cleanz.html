@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brincando com Jquery</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+	.divu{
+		height: 300px;
+		width:30px;
+	}
+
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row mt-5 offset-1">
+			<div id="area"><label><input id="texto" type="text"></label>
+				<button class="btn btn-success" id="colocar">+</button> <button class="btn btn-success" id="xesque" >Fonte +</button> <button class="btn btn-danger" id="xesque2" >Fonte -</button> <button class="btn btn-info" id="escolher">Escolher</button> <button class="btn btn-dark" id="xesq">Salvar</button>
+
+					<div id="digite"> </div>
+						</div>							
+					</div>
+				</div>
+
+
+		
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+
+	$(document).on('click','#colocar',function(){
+		var tex = $('#texto').val();
+		$('#digite').append("<li>"+tex+"</li> <button class='btn btn-danger' id='tirar'>-</button>");
+	});
+
+	$(document).on('click','#tirar',function(){
+		$('#digite').empty();
+	});
+
+		var tamanho = 10
+	$(document).on('click','#xesque',function(){
+		var tex = $('#texto').val();
+		tamanho+= 10
+		$('#digite').css('font-size',tamanho);
+	});
+
+	$(document).on('click','#xesque2',function(){
+		var tex = $('#texto').val();
+		tamanho-= 10
+		$('#digite').css('font-size',tamanho);
+	});
+
+		$(document).on('click','#escolher',function(){
+		var cor = prompt("Digite a cor que deseja (em inglês ou hexadecimal!)");
+		$('body').css("background-color",cor);
+	});
+	$(document).on('click','#xesq',function(){
+		localStorage.setItem('xesque', '200');
+	});
+</script>
+
+</body>
+</html>
